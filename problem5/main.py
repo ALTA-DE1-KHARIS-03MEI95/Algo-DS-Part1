@@ -1,5 +1,12 @@
 def max_sequence(arr):
-    return 0
+    max_so_far = arr[0]
+    max_ending_here = arr[0]
+
+    for i in range(1, len(arr)):
+        max_ending_here = max(arr[i], max_ending_here + arr[i])
+        max_so_far = max(max_so_far, max_ending_here)
+
+    return max_so_far
 
 if __name__ == "__main__":
     print(max_sequence([-2, 1, -3, 4, -1, 2, 1, -5, 4]))  # 6
